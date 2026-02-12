@@ -1,0 +1,94 @@
+# -----------------------------
+# Secrets / environment files
+# -----------------------------
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!*.env.example
+
+# Keys and certificates
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# -----------------------------
+# Python / Django
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Packaging / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+build/
+site/
+.eggs/
+*.egg
+*.egg-info/
+pip-wheel-metadata/
+
+# Django local/state files
+db.sqlite3
+db.sqlite3-journal
+local_settings.py
+media/
+staticfiles/
+
+# -----------------------------
+# Node / frontend
+# -----------------------------
+node_modules/
+dist/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+coverage/
+*.tsbuildinfo
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------
+# IDE / OS
+# -----------------------------
+.vscode/
+.idea/
+*.iml
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------
+# Misc logs and temp
+# -----------------------------
+*.log
+logs/
+tmp/
+temp/
