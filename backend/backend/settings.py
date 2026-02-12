@@ -135,7 +135,12 @@ LOGIN_URL = "/accounts/login/"
 
 def _parse_csv_env(name, default=""):
     raw = os.getenv(name, default)
-    return [item.strip() for item in raw.split(",") if item.strip()]
+    values = []
+    for item in raw.split(","):
+        normalized = item.strip().rstrip("/")
+        if normalized and normalized not in values:
+            values.append(normalized)
+    return values
 
 
 CORS_ALLOWED_ORIGINS = _parse_csv_env(
