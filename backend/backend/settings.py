@@ -30,6 +30,9 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-only-secret")
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h.strip()]
+if render_host := os.getenv("RENDER_EXTERNAL_HOSTNAME"):
+    ALLOWED_HOSTS.append(render_host)
+ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -137,12 +140,12 @@ def _parse_csv_env(name, default=""):
 
 CORS_ALLOWED_ORIGINS = _parse_csv_env(
     "CORS_ALLOWED_ORIGINS",
-    "http://127.0.0.1:5173,http://localhost:5173",
+    "http://127.0.0.1:5173,http://localhost:5173,https://youtube-cloneaditya.netlify.app",
 )
 
 CSRF_TRUSTED_ORIGINS = _parse_csv_env(
     "CSRF_TRUSTED_ORIGINS",
-    "http://127.0.0.1:5173,http://localhost:5173",
+    "http://127.0.0.1:5173,http://localhost:5173,https://youtube-cloneaditya.netlify.app",
 )
 
 REST_FRAMEWORK = {
